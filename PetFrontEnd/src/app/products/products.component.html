@@ -1,0 +1,33 @@
+<h2>Products</h2>
+<hr>
+
+<main class="products-container">
+  <section class="products-filter-section">
+    <label>
+      name <input type="text" class="form-control" (input)="updateName($event)">
+    </label>
+    <label>
+      Category
+    <select class="form-control" [(ngModel)]="categoryCode">
+      <option value="0" selected>All</option>
+      <option value="1">Medicine</option>
+      <option value="2">Food and treat</option>
+      <option value="3">Grooming supply</option>
+    </select>
+    </label>
+
+  </section>
+
+  <section class="products-list-section">
+    <div class="products-list-container">
+
+      <ng-container *ngIf="products">
+        <app-product-overview *ngFor="let curP of products |filterName: inputName|category:categoryCode " [product]="curP">
+        </app-product-overview>
+      </ng-container>
+    </div>
+
+  </section>
+</main>
+
+

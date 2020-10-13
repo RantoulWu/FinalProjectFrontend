@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+  <div class="row product-detail-container" *ngIf="product">
+    <div class="col-sm-9">
+      <div class="product-detail-title" style="text-align: center">
+        <h2>{{product.title}}</h2>
+      </div>
+      <div class="product-detail-image-container" style="text-align: center">
+        <img src="{{product.img}}" class="product-detail-image">
+      </div>
+      <div class="product-detail-info-brand">
+        <table>
+          <tr>Full description:  {{product.description}}</tr>
+          <tr>Price: {{product.price}}</tr>
+          <tr>stock:  {{product.stock}}</tr>
+          <tr>animal category: {{product.animalcategory}}</tr>
+          <tr>use category: {{product.usecategory}}</tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-3 product-detail-info-container">
+      <div class="product-detail-info-price">
+        {{product.price | currency}}
+      </div>
+
+      <div class="product-detail-info-cart-button-container">
+        <span>
+          <button class="btn btn-primary btn-block" (click)="showNext($event)">Edit Product</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
